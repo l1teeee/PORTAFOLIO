@@ -14,8 +14,8 @@ export function Header({ nameRef, roleRef, textColor, textSecondary, onNavigate 
         <header className="space-y-2">
             <h1
                 ref={nameRef}
-                className={`text-5xl md:text-7xl font-light ${textColor} tracking-tight transition-colors duration-1000 ease-in-out drop-shadow-lg cursor-pointer`}
-                onClick={() => onNavigate('home')}
+                className={`text-2xl md:text-5xl font-light ${textColor} tracking-tight transition-colors duration-1000 ease-in-out drop-shadow-lg cursor-pointer`}
+                onClick={() => onNavigate('info')}
             >
                 Julián Méndez
             </h1>
@@ -23,7 +23,7 @@ export function Header({ nameRef, roleRef, textColor, textSecondary, onNavigate 
                 ref={roleRef}
                 className={`text-sm md:text-base ${textSecondary} font-light transition-colors duration-1000 ease-in-out drop-shadow-md`}
             >
-                Designer & Developer
+                Fullstack Developer & IT Engineer
             </p>
         </header>
     );

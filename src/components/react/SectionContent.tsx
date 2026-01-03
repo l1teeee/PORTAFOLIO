@@ -30,10 +30,16 @@ export function SectionContent({ contentRef, bioRef, activeSection, textColor, t
                 );
             case 'info':
                 return (
-                    <div className="absolute bottom-8 md:bottom-16 right-8 md:right-16 max-w-md">
-                        <h2 className={`${textColor} text-2xl md:text-3xl font-light mb-4`}>Info</h2>
-                        <p className={`${textTertiary} text-xs md:text-sm font-light leading-relaxed`}>
-                            Learn more about my background, skills, and approach to design and development.
+                    <div ref={bioRef} className="absolute bottom-8 md:bottom-16 right-8 md:right-16 max-w-xs">
+                        <p className={`${textTertiary} text-xs md:text-sm font-light leading-relaxed transition-colors duration-1000 ease-in-out drop-shadow-md`}>
+                            <span className="block">Born in 2001</span>
+                            <span className="block">in El Salvador.</span>
+                            <span className="block">
+                                I believe every challenge <br/>is an opportunity to grow.<br/>
+                                Leading technical teams with<br/> a mission to embrace innovation,<br/>
+                                I am pursuing new ways<br/> to create meaningful solutions<br/>
+                                through strategic thinking and <br/>continuous learning.
+                            </span>
                         </p>
                     </div>
                 );
