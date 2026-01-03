@@ -11,17 +11,24 @@ interface NavigationProps {
     dotBg: string;
 }
 
-export function Navigation({ navRef, activeSection, onNavigate, textColor, textTertiary, dotBg }: NavigationProps) {
+export function Navigation({
+                               navRef,
+                               activeSection,
+                               onNavigate,
+                               textColor,
+                               textTertiary,
+                               dotBg
+                           }: NavigationProps) {
     const menuItems: { id: Section; label: string }[] = [
         { id: 'info', label: 'Info' },
         { id: 'projects', label: 'Projects' },
-        { id: 'contact', label: 'Contact' },
+        { id: 'certificates', label: 'Certificates' },
         { id: 'faq', label: 'FAQ' },
         { id: 'copycats', label: 'Copycats' },
     ];
 
     return (
-        <nav className="absolute left-8 md:left-24 top-1/3">
+        <nav className="hidden lg:block absolute left-8 md:left-24 top-1/3">
             <ul ref={navRef} className={`space-y-6 transition-colors duration-1000 ease-in-out`}>
                 {menuItems.map((item) => (
                     <li
@@ -30,12 +37,10 @@ export function Navigation({ navRef, activeSection, onNavigate, textColor, textT
                         onClick={() => onNavigate(item.id)}
                     >
                         {activeSection === item.id ? (
-                            // Solo mostrar el círculo cuando está activo
                             <span
                                 className={`w-2 h-2 ${dotBg} rounded-full transition-all duration-300 drop-shadow-md`}
                             ></span>
                         ) : (
-                            // Mostrar texto cuando NO está activo
                             <span className={`text-sm md:text-base font-light ${textTertiary} hover:${textColor} transition-colors duration-300 drop-shadow-md`}>
                                 {item.label}
                             </span>

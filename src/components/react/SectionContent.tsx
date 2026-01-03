@@ -1,7 +1,8 @@
 // src/components/react/SectionContent.tsx
-// src/components/react/SectionContent.tsx
 import type {RefObject} from "react";
 import type { Section } from "@/types";
+import { ProjectsList } from "@/components/react/ProjectsList";
+import { CertificatesList } from "@/components/react/CertificatesList";
 
 interface SectionContentProps {
     contentRef: RefObject<HTMLDivElement>;
@@ -9,58 +10,42 @@ interface SectionContentProps {
     activeSection: Section;
     textColor: string;
     textTertiary: string;
+    baseColorHex: string;
+    hoverColorHex: string;
 }
 
-export function SectionContent({ contentRef, bioRef, activeSection, textColor, textTertiary }: SectionContentProps) {
+export function SectionContent({
+                                   contentRef,
+                                   bioRef,
+                                   activeSection,
+                                   textColor,
+                                   textTertiary,
+                                   baseColorHex,
+                                   hoverColorHex
+                               }: SectionContentProps) {
     const renderContent = () => {
         switch (activeSection) {
-            case 'home':
-                return (
-                    <div ref={bioRef} className="absolute bottom-8 md:bottom-16 right-8 md:right-16 max-w-xs">
-                        <p className={`${textTertiary} text-xs md:text-sm font-light leading-relaxed transition-colors duration-1000 ease-in-out drop-shadow-md`}>
-                            <span className="block mb-2">Born in 1994</span>
-                            <span className="block mb-2">in Osaka, Japan.</span>
-                            <span className="block">
-                                I believe web design can be more diverse and inspiring.
-                                With a mission to present the possibilities of web design,
-                                I am pursuing new expressions through experiments and thoughts.
-                            </span>
-                        </p>
-                    </div>
-                );
             case 'info':
                 return (
-                    <div ref={bioRef} className="absolute bottom-8 md:bottom-16 right-8 md:right-16 max-w-xs">
-                        <p className={`${textTertiary} text-xs md:text-sm font-light leading-relaxed transition-colors duration-1000 ease-in-out drop-shadow-md`}>
-                            <span className="block">Born in 2001</span>
-                            <span className="block">in El Salvador.</span>
-                            <span className="block">
-                                I believe every challenge <br/>is an opportunity to grow.<br/>
-                                Leading technical teams with<br/> a mission to embrace innovation,<br/>
-                                I am pursuing new ways<br/> to create meaningful solutions<br/>
-                                through strategic thinking and <br/>continuous learning.
+                    <div ref={bioRef} className="absolute bottom-8 md:bottom-16 right-8 md:right-16 max-w-md">
+                        <p className={`${textTertiary} text-xs md:text-sm font-light leading-relaxed transition-colors duration-1000 ease-in-out drop-shadow-md ml-8 md:ml-2`}>
+                            <span className="">Born in 2002</span>
+                            <br />
+                            <span className="">in El Salvador.</span>
+                            <br />
+                            <span className="">
+                                I believe every challenge is an opportunity to grow.
+                                Leading technical teams with a mission to embrace innovation,
+                                I am pursuing new ways to create meaningful solutions
+                                through strategic thinking and continuous learning.
                             </span>
                         </p>
                     </div>
                 );
             case 'projects':
-                return (
-                    <div className="absolute bottom-8 md:bottom-16 right-8 md:right-16 max-w-md">
-                        <h2 className={`${textColor} text-2xl md:text-3xl font-light mb-4`}>Projects</h2>
-                        <p className={`${textTertiary} text-xs md:text-sm font-light leading-relaxed`}>
-                            Explore my latest work and creative experiments in web design and development.
-                        </p>
-                    </div>
-                );
-            case 'contact':
-                return (
-                    <div className="absolute bottom-8 md:bottom-16 right-8 md:right-16 max-w-md">
-                        <h2 className={`${textColor} text-2xl md:text-3xl font-light mb-4`}>Contact</h2>
-                        <p className={`${textTertiary} text-xs md:text-sm font-light leading-relaxed`}>
-                            Get in touch for collaborations, projects, or just to say hello.
-                        </p>
-                    </div>
-                );
+                return <ProjectsList bioRef={bioRef} baseColor={baseColorHex} hoverColor={hoverColorHex} />;
+            case 'certificates':
+                return <CertificatesList bioRef={bioRef} baseColor={baseColorHex} hoverColor={hoverColorHex} />;
             case 'faq':
                 return (
                     <div className="absolute bottom-8 md:bottom-16 right-8 md:right-16 max-w-md">

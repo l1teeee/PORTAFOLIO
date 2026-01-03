@@ -1,4 +1,4 @@
-export type Section = 'home' | 'projects' | 'info' | 'contact' | 'faq' | 'copycats';
+export type Section = 'home' | 'projects' | 'info' | 'certificates' | 'faq' | 'copycats';
 
 export interface ThemeColors {
     bgColor: string;
@@ -11,4 +11,6 @@ export interface ThemeColors {
     dotBg: string;
     buttonBg: string;
     buttonHover: string;
+    baseColorHex: string;
+    hoverColorHex: string;
 }

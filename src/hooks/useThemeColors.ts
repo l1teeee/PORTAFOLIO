@@ -14,5 +14,7 @@ export function useThemeColors(isDark: boolean): ThemeColors {
         dotBg: isDark ? "bg-white" : "bg-black",
         buttonBg: isDark ? "bg-white/5" : "bg-black/5",
         buttonHover: isDark ? "hover:bg-white/10" : "hover:bg-black/10",
+        baseColorHex: isDark ? "#ffffff" : "#000000",
+        hoverColorHex: isDark ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.45)",
     }), [isDark]);
 }

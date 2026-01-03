@@ -4,6 +4,7 @@ import { Intro } from "@/components/react/Intro";
 import { ThemeToggle } from "@/components/react/ThemeToggle";
 import { Header } from "@/components/react/Header";
 import { Navigation } from "@/components/react/Navigation";
+import { MobileMenu } from "@/components/react/MobileMenu";
 import { SectionContent } from "@/components/react/SectionContent";
 import { SocialLinks } from "@/components/react/SocialLinks";
 import { Copyright } from "@/components/react/Copyright";
@@ -16,6 +17,7 @@ export default function Hero() {
     const [isDark, setIsDark] = useState(true);
     const [showIntro, setShowIntro] = useState(true);
     const [showMain, setShowMain] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const nameRef = useRef<HTMLHeadingElement>(null);
     const roleRef = useRef<HTMLParagraphElement>(null);
@@ -76,6 +78,8 @@ export default function Hero() {
                     borderColor={colors.borderColor}
                     buttonBg={colors.buttonBg}
                     buttonHover={colors.buttonHover}
+                    isMenuOpen={isMenuOpen}
+                    onMenuToggle={() => setIsMenuOpen(!isMenuOpen)}
                 />
 
                 <div className={`relative z-10 h-full border ${colors.borderColor} backdrop-blur-sm bg-white/[0.02] p-8 md:p-16 flex flex-col justify-between transition-all duration-1000 ease-in-out`}>
@@ -102,6 +106,8 @@ export default function Hero() {
                         activeSection={activeSection}
                         textColor={colors.textColor}
                         textTertiary={colors.textTertiary}
+                        baseColorHex={colors.baseColorHex}
+                        hoverColorHex={colors.hoverColorHex}
                     />
 
                     <SocialLinks
@@ -112,6 +118,20 @@ export default function Hero() {
                     <Copyright textLight={colors.textLight} />
                 </div>
             </div>
+
+            {/* Menú móvil de pantalla completa */}
+            <MobileMenu
+                isOpen={isMenuOpen}
+                activeSection={activeSection}
+                onNavigate={navigateToSection}
+                onClose={() => setIsMenuOpen(false)}
+                textColor={colors.textColor}
+                textTertiary={colors.textTertiary}
+                bgColor={colors.bgColor}
+                borderColor={colors.borderColor}
+                isDark={isDark}
+                onThemeToggle={() => setIsDark(!isDark)}
+            />
         </>
     );
 }
