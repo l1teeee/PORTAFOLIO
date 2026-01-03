@@ -20,7 +20,7 @@ export function Navigation({
                                dotBg
                            }: NavigationProps) {
     const menuItems: { id: Section; label: string }[] = [
-        { id: 'info', label: 'Info' },
+        { id: 'me', label: 'Me' },
         { id: 'projects', label: 'Projects' },
         { id: 'certificates', label: 'Certificates' },
         { id: 'faq', label: 'FAQ' },

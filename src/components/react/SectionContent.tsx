@@ -25,7 +25,7 @@ export function SectionContent({
                                }: SectionContentProps) {
     const renderContent = () => {
         switch (activeSection) {
-            case 'info':
+            case 'me':
                 return (
                     <div ref={bioRef} className="absolute bottom-8 md:bottom-16 right-8 md:right-16 max-w-md">
                         <p className={`${textTertiary} text-xs md:text-sm font-light leading-relaxed transition-colors duration-1000 ease-in-out drop-shadow-md ml-8 md:ml-2`}>
