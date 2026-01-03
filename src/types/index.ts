@@ -1,4 +1,4 @@
-export type Section = 'home' | 'projects' | 'info' | 'certificates' | 'faq' | 'copycats';
+export type Section = 'home' | 'projects' | 'me' | 'certificates' | 'faq' | 'copycats';
 
 export interface ThemeColors {
     bgColor: string;
