@@ -28,7 +28,7 @@ export function Navigation({
     ];
 
     return (
-        <nav className="hidden lg:block absolute left-8 md:left-24 top-1/3">
+        <nav className="hidden lg:block absolute left-8 md:left-24 top-1/3 z-50">
             <ul ref={navRef} className={`space-y-6 transition-colors duration-1000 ease-in-out`}>
                 {menuItems.map((item) => (
                     <li

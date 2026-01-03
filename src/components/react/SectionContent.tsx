@@ -3,6 +3,7 @@ import type {RefObject} from "react";
 import type { Section } from "@/types";
 import { ProjectsList } from "@/components/react/ProjectsList";
 import { CertificatesList } from "@/components/react/CertificatesList";
+import { LinesDOF } from "@/components/react/LinesDOF";
 
 interface SectionContentProps {
     contentRef: RefObject<HTMLDivElement>;
@@ -12,6 +13,7 @@ interface SectionContentProps {
     textTertiary: string;
     baseColorHex: string;
     hoverColorHex: string;
+    isDark: boolean; // Añadido para LinesDOF
 }
 
 export function SectionContent({
@@ -21,14 +23,20 @@ export function SectionContent({
                                    textColor,
                                    textTertiary,
                                    baseColorHex,
-                                   hoverColorHex
+                                   hoverColorHex,
+                                   isDark
                                }: SectionContentProps) {
     const renderContent = () => {
         switch (activeSection) {
             case 'home':
+                return (
+                    <div ref={bioRef} className="absolute inset-0 flex items-center justify-center">
+                        <LinesDOF isDark={isDark} />
+                    </div>
+                );
             case 'me':
                 return (
-                    <div ref={bioRef} className="absolute bottom-8 md:bottom-16 right-8 md:right-16 max-w-md">
+                    <div className="absolute bottom-8 md:bottom-16 right-8 md:right-16 max-w-md">
                         <p className={`${textTertiary} text-xs md:text-sm font-light leading-relaxed transition-colors duration-1000 ease-in-out drop-shadow-md ml-8 md:ml-2`}>
                             <span className="">Born in 2002</span>
                             <br />

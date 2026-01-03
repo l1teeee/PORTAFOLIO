@@ -15,7 +15,7 @@ export function Header({ nameRef, roleRef, textColor, textSecondary, onNavigate 
             <h1
                 ref={nameRef}
                 className={`text-2xl md:text-5xl font-light ${textColor} tracking-tight transition-colors duration-1000 ease-in-out drop-shadow-lg cursor-pointer`}
-                onClick={() => onNavigate('me')}
+                onClick={() => onNavigate('home')}
             >
                 Julián Méndez
             </h1>
