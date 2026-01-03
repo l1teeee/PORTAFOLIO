@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 import type { Section } from "@/types";
 
 export function useNavigation(contentRef: RefObject<HTMLDivElement>) {
-    const [activeSection, setActiveSection] = useState<Section>('info'); // Cambiado de 'home' a 'info'
+    const [activeSection, setActiveSection] = useState<Section>('home');
 
     const navigateToSection = (section: Section) => {
         if (section === activeSection) return;

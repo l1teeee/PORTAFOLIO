@@ -54,7 +54,6 @@ export default function Hero() {
                     transition: 'opacity 1s ease-in-out'
                 }}
             >
-                {/* Video de fondo con inversión de colores */}
                 <video
                     autoPlay
                     loop

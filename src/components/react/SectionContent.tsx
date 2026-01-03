@@ -25,6 +25,7 @@ export function SectionContent({
                                }: SectionContentProps) {
     const renderContent = () => {
         switch (activeSection) {
+            case 'home':
             case 'me':
                 return (
                     <div ref={bioRef} className="absolute bottom-8 md:bottom-16 right-8 md:right-16 max-w-md">
