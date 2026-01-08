@@ -23,21 +23,27 @@ export function ProjectsList({
         {
             title: "AMETIA",
             titleSuffix: "PLUS",
-            meta: "2024 / Frontend Developer Freelance / React.js, Node.js",
+            meta: "2024 / Frontend Developer / React.js, Node.js",
             url: "https://ametiaplus.com/",
         },
         {
             title: "OPENTABLE",
             titleSuffix: "Restaurant System",
-            meta: "2024 / Fullstack Developer Freelance / Next.js, Laravel",
+            meta: "2024 / Fullstack Developer / Next.js, Laravel",
             url: "",
         },
         {
             title: "UT",
             titleSuffix: "AI Chat",
-            meta: "2024 / Fullstack Developer Freelance / Next.js, C#, Claude Haiku 4.5",
+            meta: "2024 / Fullstack Developer / Next.js, C#, Claude Haiku 4.5",
             url: "",
         },
+        {
+            title: "InkyTap",
+            titleSuffix: "Platform",
+            meta: "2024 / Fullstack Developer / Next.js, Node.js, MongoDB, AWS S3",
+            url: "https://inkytap.com/",
+        }
     ];
 
     const Title = ({ p }: { p: Project }) => (

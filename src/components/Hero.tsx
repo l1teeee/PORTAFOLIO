@@ -25,6 +25,7 @@ export default function Hero() {
     const bioRef = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
+    const [isCVModalOpen, setIsCVModalOpen] = useState(false);
 
     const colors = useThemeColors(isDark);
     const { activeSection, navigateToSection } = useNavigation(contentRef);
@@ -79,6 +80,8 @@ export default function Hero() {
                     buttonHover={colors.buttonHover}
                     isMenuOpen={isMenuOpen}
                     onMenuToggle={() => setIsMenuOpen(!isMenuOpen)}
+                    isCVModalOpen={isCVModalOpen}
+                    onCVModalClose={() => setIsCVModalOpen(false)}
                 />
 
                 <div className={`relative z-10 h-full border ${colors.borderColor} backdrop-blur-sm bg-white/[0.02] p-8 md:p-16 flex flex-col justify-between transition-all duration-1000 ease-in-out`}>
@@ -112,6 +115,11 @@ export default function Hero() {
                     <SocialLinks
                         textQuaternary={colors.textQuaternary}
                         textColor={colors.textColor}
+                        textTertiary={colors.textTertiary}
+                        bgColor={colors.bgColor}
+                        borderColor={colors.borderColor}
+                        isDark={isDark}
+                        onCVModalChange={setIsCVModalOpen}
                     />
 
                     <Copyright textLight={colors.textLight} />
