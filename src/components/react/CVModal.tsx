@@ -1,4 +1,4 @@
-const CV_BASE_PATH = "/src/assets/cv";
+const CV_BASE_PATH = "/cv";
 
 interface CVModalProps {
     isOpen: boolean;
