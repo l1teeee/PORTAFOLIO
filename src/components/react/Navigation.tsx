@@ -23,8 +23,7 @@ export function Navigation({
         { id: 'me', label: 'Me' },
         { id: 'projects', label: 'Projects' },
         { id: 'certificates', label: 'Certificates' },
-        { id: 'faq', label: 'FAQ' },
-        { id: 'copycats', label: 'Copycats' },
+
     ];
 
     return (

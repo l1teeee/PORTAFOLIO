@@ -40,7 +40,7 @@ export function ProjectsList({
         },
         {
             title: "InkyTap",
-            titleSuffix: "Platform",
+            titleSuffix: "Digital Library",
             meta: "2024 / Fullstack Developer / Next.js, Node.js, MongoDB, AWS S3",
             url: "https://inkytap.com/",
         }
