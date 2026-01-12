@@ -21,6 +21,12 @@ export function CertificatesList({
                                  }: CertificatesListProps) {
     const certificates: Certificate[] = [
         {
+            title: "Productivity and Digital Tools",
+            institution: "Platzi",
+            date: "2026",
+            url: "https://platzi.com/p/alejandro23.am29/ruta/30146-productividad-herramientas-digitales/diploma/detalle/",
+        },
+        {
             title: "Project Management and Agile Methodologies",
             institution: "Platzi",
             date: "2025",
