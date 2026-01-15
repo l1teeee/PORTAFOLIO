@@ -23,26 +23,32 @@ export function ProjectsList({
         {
             title: "AMETIA",
             titleSuffix: "PLUS",
-            meta: "2024 / Frontend Developer / React.js, Node.js",
+            meta: "2025 / Frontend Developer / React.js, Node.js",
             url: "https://ametiaplus.com/",
         },
         {
             title: "OPENTABLE",
             titleSuffix: "Restaurant System",
-            meta: "2024 / Fullstack Developer / Next.js, Laravel",
+            meta: "2025 / Fullstack Developer / Next.js, Laravel",
             url: "",
         },
         {
             title: "UT",
             titleSuffix: "AI Chat",
-            meta: "2024 / Fullstack Developer / Next.js, C#, Claude Haiku 4.5",
+            meta: "2025 / Fullstack Developer / Next.js, C#, Claude Haiku 4.5",
             url: "",
         },
         {
             title: "InkyTap",
             titleSuffix: "Digital Library",
-            meta: "2024 / Fullstack Developer / Next.js, Node.js, MongoDB, AWS S3",
+            meta: "2025 / Fullstack Developer / Next.js, Node.js, MongoDB, AWS S3",
             url: "https://inkytap.com/",
+        },
+        {
+            title: "KALEO",
+            titleSuffix: "Experimental landing",
+            meta: "2025 / Fullstack Developer / Next.js, React, GSAP, LENIS",
+            url: "https://kaleo-usx2.onrender.com/",
         }
     ];
 
