@@ -35,8 +35,8 @@ export function ProjectsList({
         {
             title: "UT",
             titleSuffix: "AI Chat",
-            meta: "2025 / Fullstack Developer / Next.js, C#, Claude Haiku 4.5",
-            url: "",
+            meta: "2025 / Fullstack Developer / Next.js, Python, Claude Haiku 4.5",
+            url: "https://front-ut.vercel.app/",
         },
         {
             title: "InkyTap",

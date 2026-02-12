@@ -21,10 +21,52 @@ export function CertificatesList({
                                  }: CertificatesListProps) {
     const certificates: Certificate[] = [
         {
-            title: "Productivity and Digital Tools",
-            institution: "Platzi",
+            title: "Cloud Security Foundations",
+            institution: "Amazon Web Services",
+            date: "2025",
+            url: "https://www.credly.com/badges/e1f84d75-92e6-4aab-bd04-6d492a270737",
+        },
+        {
+            title: "Cloud Operations",
+            institution: "Amazon Web Services",
+            date: "2025",
+            url: "https://www.credly.com/badges/d00e8e0e-26d9-4af3-8460-541f7fc5dcc9",
+        },
+        {
+            title: "Machine Learning Foundations",
+            institution: "Amazon Web Services",
+            date: "2025",
+            url: "https://www.credly.com/badges/32c22b36-39d2-4b61-a9ce-1ef0ee19a61f",
+        },
+        {
+            title: "Google Cloud Cybersecurity Certificate",
+            institution: "Google Cloud",
             date: "2026",
-            url: "https://platzi.com/p/alejandro23.am29/ruta/30146-productividad-herramientas-digitales/diploma/detalle/",
+            url: "https://www.credly.com/badges/aaef83f6-518c-4d89-8457-04dd616995cd",
+        },
+        {
+            title: "Product Analytics Certification",
+            institution: "Pendo",
+            date: "2026",
+            url: "https://www.credly.com/badges/4a138ca1-9539-4247-89b8-d165381eab3c",
+        },
+        {
+            title: "Product Discovery Certification",
+            institution: "Pendo",
+            date: "2026",
+            url: "https://www.credly.com/badges/66c714c0-78a2-48bd-9545-ee99391386a7",
+        },
+        {
+            title: "Amplitude Foundations — Analytics",
+            institution: "Amplitude",
+            date: "2026",
+            url: "https://www.credly.com/badges/26e42dc5-a63d-4a0b-8577-098e3cf76bec",
+        },
+        {
+            title: "Scrum Master",
+            institution: "ESIT",
+            date: "2025",
+            url: "https://formacioncontinua.esit.gob.sv/curso/share-certificate/9b25361c-e371-4e84-956a-0280e9436428",
         },
         {
             title: "Project Management and Agile Methodologies",
@@ -39,72 +81,16 @@ export function CertificatesList({
             url: "https://platzi.com/p/alejandro23.am29/ruta/30142-liderazgo-gestion-equipos/diploma/detalle/",
         },
         {
+            title: "Productivity and Digital Tools",
+            institution: "Platzi",
+            date: "2026",
+            url: "https://platzi.com/p/alejandro23.am29/ruta/30146-productividad-herramientas-digitales/diploma/detalle/",
+        },
+        {
             title: "Philosophy and Strategy for Leaders",
             institution: "Platzi",
             date: "2025",
             url: "https://platzi.com/p/alejandro23.am29/ruta/30150-ruta/diploma/detalle/",
-        },
-        {
-            title: "Amazon Web Services (AWS) Cloud Operations",
-            institution: "AWS",
-            date: "2025",
-            url: "https://www.credly.com/badges/d00e8e0e-26d9-4af3-8460-541f7fc5dcc9/public_url",
-        },
-        {
-            title: "Amazon Web Services (AWS) Cloud Security Foundations",
-            institution: "AWS",
-            date: "2025",
-            url: "https://www.credly.com/badges/e1f84d75-92e6-4aab-bd04-6d492a270737/public_url",
-        },
-        {
-            title: "Amazon Web Services (AWS) Machine Learning Foundations",
-            institution: "AWS",
-            date: "2025",
-            url: "https://www.credly.com/badges/32c22b36-39d2-4b61-a9ce-1ef0ee19a61f/public_url",
-        },
-        {
-            title:
-                "Introduction to the Agile Project Management Methodology: SCRUM (Scrum I)",
-            institution: "ESIT",
-            date: "2025",
-            url: "https://formacioncontinua.esit.gob.sv/curso/share-certificate/8bbe4bf6-8b5e-4745-8b8c-8028d06df260",
-        },
-        {
-            title:
-                "Agile Project Management Methodologies: Scrum Product Owner (Scrum II)",
-            institution: "ESIT",
-            date: "2025",
-            url: "https://formacioncontinua.esit.gob.sv/curso/share-certificate/811bfc84-3ca0-4251-b490-f5fe33b066ed",
-        },
-        {
-            title: "Advanced Scrum Product Owner (Scrum III)",
-            institution: "ESIT",
-            date: "2025",
-            url: "https://formacioncontinua.esit.gob.sv/curso/share-certificate/3db48483-5fef-4aed-a6ff-36dceb84590d",
-        },
-        {
-            title: "Scrum Master (Scrum IV)",
-            institution: "ESIT",
-            date: "2025",
-            url: "https://formacioncontinua.esit.gob.sv/curso/share-certificate/9b25361c-e371-4e84-956a-0280e9436428",
-        },
-        {
-            title: "Digital Governance Fundamentals",
-            institution: "ESIT",
-            date: "2025",
-            url: "https://formacioncontinua.esit.gob.sv/curso/share-certificate/b1675a5d-c4ec-4523-97b9-f122aa4dec19",
-        },
-        {
-            title: "Data Governance Management, Protection, and Compliance",
-            institution: "ESIT",
-            date: "2025",
-            url: "https://formacioncontinua.esit.gob.sv/curso/share-certificate/5d469797-fdd0-4b05-93da-35ee680d92cc",
-        },
-        {
-            title: "Data Governance and Management",
-            institution: "ESIT",
-            date: "2025",
-            url: "https://formacioncontinua.esit.gob.sv/curso/share-certificate/c0ff765a-b6b8-4cc0-bc5e-1e0dea516ff5",
         },
     ];
 
