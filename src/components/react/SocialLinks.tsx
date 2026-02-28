@@ -22,7 +22,7 @@ export function SocialLinks({
     const [isCVModalOpen, setIsCVModalOpen] = useState(false);
 
     const links = [
-        { label: "INSTAGRAM", href: "https://www.instagram.com/jmenrev/" },
+        { label: "INSTAGRAM", href: "https://www.instagram.com/alejandrorva_/" },
         {
             label: "LINKEDIN",
             href: "https://www.linkedin.com/in/juli%C3%A1n-m%C3%A9ndez-arev/",

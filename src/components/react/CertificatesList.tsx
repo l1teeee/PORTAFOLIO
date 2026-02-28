@@ -45,6 +45,12 @@ export function CertificatesList({
             url: "https://www.credly.com/badges/aaef83f6-518c-4d89-8457-04dd616995cd",
         },
         {
+            title: "Product-led Certification",
+            institution: "Pendo",
+            date: "2026",
+            url: "https://www.credly.com/badges/5143d805-cf46-4450-9c49-ccf94da609df",
+        },
+        {
             title: "Product Analytics Certification",
             institution: "Pendo",
             date: "2026",
@@ -61,6 +67,12 @@ export function CertificatesList({
             institution: "Amplitude",
             date: "2026",
             url: "https://www.credly.com/badges/26e42dc5-a63d-4a0b-8577-098e3cf76bec",
+        },
+        {
+            title: "Amplitude Foundations - Data Management",
+            institution: "Amplitude",
+            date: "2026",
+            url: "https://www.credly.com/badges/98cc57bf-0e9f-4fee-b24d-919e37eac090",
         },
         {
             title: "Scrum Master",
