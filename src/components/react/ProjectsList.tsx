@@ -21,6 +21,12 @@ export function ProjectsList({
                              }: ProjectsListProps) {
     const projects: Project[] = [
         {
+            title: "VIELINKS",
+            titleSuffix: "Social Media Manager",
+            meta: "2026 / Fullstack Developer / React, Node.js, MySQL",
+            url: "https://obsidian-lens.vercel.app/",
+        },
+        {
             title: "AMETIA",
             titleSuffix: "PLUS",
             meta: "2025 / Frontend Developer / React.js, Node.js",
