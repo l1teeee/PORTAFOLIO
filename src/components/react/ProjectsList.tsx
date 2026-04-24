@@ -22,38 +22,38 @@ export function ProjectsList({
     const projects: Project[] = [
         {
             title: "VIELINKS",
-            titleSuffix: "Social Media Manager",
-            meta: "2026 / Fullstack Developer / React, Node.js, MySQL",
-            url: "https://obsidian-lens.vercel.app/",
+            titleSuffix: "Social Media Management SaaS",
+            meta: "2025 - 2026 / Fullstack & Backend Developer / Node.js 20, Fastify 5, MySQL 8, Kafka, GCP, Docker, Kubernetes",
+            url: "https://vielinks.com/",
         },
         {
             title: "AMETIA",
             titleSuffix: "PLUS",
-            meta: "2025 / Frontend Developer / React.js, Node.js",
+            meta: "2025 / Frontend & Backend Integration Developer / React.js, Java 8+, RxJava, GCP, Kubernetes, GitHub Actions",
             url: "https://ametiaplus.com/",
         },
         {
             title: "OPENTABLE",
-            titleSuffix: "Restaurant System",
-            meta: "2025 / Fullstack Developer / Next.js, Laravel",
+            titleSuffix: "Restaurant Order & Table System",
+            meta: "2025 / Fullstack Developer / Next.js, Java 8+, REST APIs, Hexagonal Architecture, Kafka, GCP",
             url: "",
         },
         {
             title: "UT",
-            titleSuffix: "AI Chat",
-            meta: "2025 / Fullstack Developer / Next.js, Python, Claude Haiku 4.5",
+            titleSuffix: "AI Chat Platform",
+            meta: "2025 / Fullstack Developer / Next.js, C#, Claude AI, Firebase, Go, GCP, Kubernetes",
             url: "https://front-ut.vercel.app/",
         },
         {
             title: "InkyTap",
-            titleSuffix: "Digital Library",
-            meta: "2025 / Fullstack Developer / Next.js, Node.js, MongoDB, AWS S3",
+            titleSuffix: "Digital Library Platform",
+            meta: "2025 / Fullstack Developer / Next.js, Node.js, MongoDB, AWS S3, Event-driven Architecture",
             url: "https://inkytap.com/",
         },
         {
             title: "KALEO",
-            titleSuffix: "Experimental landing",
-            meta: "2025 / Fullstack Developer / Next.js, React, GSAP, LENIS",
+            titleSuffix: "Experimental Landing Experience",
+            meta: "2025 / Frontend Developer / Next.js, React, GSAP, Lenis, TailwindCSS",
             url: "https://kaleo-usx2.onrender.com/",
         }
     ];
