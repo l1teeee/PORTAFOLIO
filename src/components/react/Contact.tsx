@@ -9,7 +9,7 @@ const LINKS: ExternalLink[] = [
     { label: "GitHub", href: "https://github.com/l1teeee" },
     { label: "Numen Agency", href: "https://delta-numen.com/" },
     { label: "Instagram", href: "https://www.instagram.com/amendzzs/" },
-    { label: "Curriculum Vitae", href: "/cv/CV-EN.pdf" },
+    { label: "Curriculum Vitae", href: "/cv/JM_2026.pdf" },
 ];
 
 export function Contact() {
