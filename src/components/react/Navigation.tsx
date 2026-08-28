@@ -1,48 +1,50 @@
 // src/components/react/Navigation.tsx
-import type {RefObject} from "react";
+import { useLayoutEffect, useRef, type RefObject } from "react";
 import type { Section } from "@/types";
+import { SECTIONS } from "@/data/sections";
+import { Flip } from "@/lib/gsap";
 
 interface NavigationProps {
-    navRef: RefObject<HTMLUListElement>;
+    navRef: RefObject<HTMLUListElement | null>;
     activeSection: Section;
     onNavigate: (section: Section) => void;
-    textColor: string;
-    textTertiary: string;
-    dotBg: string;
 }
 
-export function Navigation({
-                               navRef,
-                               activeSection,
-                               onNavigate,
-                               textColor,
-                               textTertiary,
-                               dotBg
-                           }: NavigationProps) {
-    const menuItems: { id: Section; label: string }[] = [
-        { id: 'me', label: 'Me' },
-        { id: 'projects', label: 'Projects' },
-        { id: 'certificates', label: 'Certificates' },
+const DOT_SELECTOR = "[data-flip-id='nav-dot']";
 
-    ];
+export function Navigation({ navRef, activeSection, onNavigate }: NavigationProps) {
+    const dotState = useRef<ReturnType<typeof Flip.getState> | null>(null);
+
+    // Capture the dot before React moves it, then Flip animates it from the old item to the new one
+    const handleNavigate = (section: Section) => {
+        const dot = navRef.current?.querySelector(DOT_SELECTOR);
+        if (dot) dotState.current = Flip.getState(dot);
+        onNavigate(section);
+    };
+
+    useLayoutEffect(() => {
+        const state = dotState.current;
+        const dot = navRef.current?.querySelector(DOT_SELECTOR);
+        if (!state || !dot) return;
+        dotState.current = null;
+        Flip.from(state, { targets: dot, duration: 0.6, ease: "power3.inOut" });
+    }, [activeSection, navRef]);
 
     return (
-        <nav className="hidden lg:block absolute left-8 md:left-24 top-1/3 z-50">
-            <ul ref={navRef} className={`space-y-6 transition-colors duration-1000 ease-in-out`}>
-                {menuItems.map((item) => (
-                    <li
-                        key={item.id}
-                        className="group cursor-pointer relative h-6 flex items-center"
-                        onClick={() => onNavigate(item.id)}
-                    >
+        <nav className="mt-14 hidden md:block">
+            <ul ref={navRef} className="text-halo space-y-[10px]">
+                {SECTIONS.map((item) => (
+                    <li key={item.id} className="flex h-3 items-center text-[12px] font-semibold leading-none">
                         {activeSection === item.id ? (
-                            <span
-                                className={`w-2 h-2 ${dotBg} rounded-full transition-all duration-300 drop-shadow-md`}
-                            ></span>
+                            <span data-flip-id="nav-dot" className="block h-[6px] w-[6px] rounded-full bg-current" aria-label={item.label} />
                         ) : (
-                            <span className={`text-sm md:text-base font-light ${textTertiary} hover:${textColor} transition-colors duration-300 drop-shadow-md`}>
+                            <button
+                                type="button"
+                                onClick={() => handleNavigate(item.id)}
+                                className="cursor-pointer transition-[opacity,transform] duration-300 hover:translate-x-1 hover:opacity-50"
+                            >
                                 {item.label}
-                            </span>
+                            </button>
                         )}
                     </li>
                 ))}

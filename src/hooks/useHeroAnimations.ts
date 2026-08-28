@@ -1,64 +1,27 @@
 // src/hooks/useHeroAnimations.ts
 import { useEffect, type RefObject } from "react";
-import { gsap } from "gsap";
+import { gsap } from "@/lib/gsap";
 
 interface AnimationRefs {
-    containerRef: RefObject<HTMLDivElement>;
-    nameRef: RefObject<HTMLHeadingElement>;
-    roleRef: RefObject<HTMLParagraphElement>;
-    navRef: RefObject<HTMLUListElement>;
-    bioRef: RefObject<HTMLDivElement>;
+    chromeRef: RefObject<HTMLDivElement | null>;
+    roleRef: RefObject<HTMLParagraphElement | null>;
+    navRef: RefObject<HTMLUListElement | null>;
+    contentRef: RefObject<HTMLDivElement | null>;
 }
 
-export function useHeroAnimations({
-                                      containerRef,
-                                      nameRef,
-                                      roleRef,
-                                      navRef,
-                                      bioRef,
-                                  }: AnimationRefs) {
+// First reveal of the UI once the intro is gone. The name reveals itself letter by letter in Header.
+export function useHeroAnimations({ chromeRef, roleRef, navRef, contentRef }: AnimationRefs, enabled: boolean) {
     useEffect(() => {
+        if (!enabled) return;
+
         const ctx = gsap.context(() => {
-            gsap.from(containerRef.current, {
-                opacity: 0,
-                duration: 1,
-                ease: "power2.inOut"
-            });
-
-            gsap.from(nameRef.current, {
-                opacity: 0,
-                y: -50,
-                duration: 1.2,
-                delay: 0.4,
-                ease: "power3.out"
-            });
-
-            gsap.from(roleRef.current, {
-                opacity: 0,
-                x: -30,
-                duration: 1,
-                delay: 0.6,
-                ease: "power2.out"
-            });
-
-            gsap.from(navRef.current?.children || [], {
-                opacity: 0,
-                x: -20,
-                duration: 0.6,
-                stagger: 0.1,
-                delay: 0.9,
-                ease: "power2.out"
-            });
-
-            gsap.from(bioRef.current, {
-                opacity: 0,
-                y: 30,
-                duration: 1,
-                delay: 1.3,
-                ease: "power2.out"
-            });
+            gsap.timeline({ defaults: { ease: "power3.out" } })
+                .from(chromeRef.current, { opacity: 0, duration: 1.2, ease: "power2.inOut" })
+                .from(roleRef.current, { opacity: 0, y: 8, duration: 0.9 }, 0.5)
+                .from(navRef.current?.children ?? [], { opacity: 0, x: -8, duration: 0.6, stagger: 0.08 }, 0.7)
+                .from(contentRef.current, { opacity: 0, y: 12, duration: 1 }, 0.9);
         });
 
         return () => ctx.revert();
-    }, [containerRef, nameRef, roleRef, navRef, bioRef]);
+    }, [enabled, chromeRef, roleRef, navRef, contentRef]);
 }
