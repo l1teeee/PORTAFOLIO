@@ -8,6 +8,7 @@ interface Project {
     url: string;
 }
 
+// Selected work and brand concepts from delta-numen.com, plus earlier independent projects
 const PROJECTS: Project[] = [
     {
         title: "VIELINKS",
@@ -16,21 +17,22 @@ const PROJECTS: Project[] = [
         url: "https://vielinks.com/",
     },
     {
-        title: "AMETIA PLUS",
-        meta: "2025 / Frontend & Backend Integration Developer / React.js, Java 8+, RxJava, GCP, Kubernetes, GitHub Actions",
-        url: "https://ametiaplus.com/",
+        title: "ScoutIA",
+        titleSuffix: "Local Business Prospecting Workspace",
+        meta: "2026 / Platform, Numen Agency / Next.js, TypeScript, Tailwind CSS, Framer Motion",
+        url: "https://scoutia.dev/landing",
     },
     {
-        title: "OPENTABLE",
-        titleSuffix: "Restaurant Order & Table System",
-        meta: "2025 / Fullstack Developer / Next.js, Java 8+, REST APIs, Hexagonal Architecture, Kafka, GCP",
-        url: "",
+        title: "WhatsApp Ops",
+        titleSuffix: "Live Order Queue & Operations Dashboard",
+        meta: "2026 / Dashboard, Numen Agency / React, TypeScript, Vite, Tailwind CSS, TanStack Query",
+        url: "https://dashboard-bot-whatsapp.vercel.app",
     },
     {
-        title: "UT",
-        titleSuffix: "AI Chat Platform",
-        meta: "2025 / Fullstack Developer / Next.js, C#, Claude AI, Firebase, Go, GCP, Kubernetes",
-        url: "https://front-ut.vercel.app/",
+        title: "ServiLocal",
+        titleSuffix: "Local Services Marketplace for El Salvador",
+        meta: "2026 / Platform, Numen Agency / Next.js, TypeScript, Tailwind CSS",
+        url: "https://servilocal-three.vercel.app",
     },
     {
         title: "InkyTap",
@@ -39,10 +41,16 @@ const PROJECTS: Project[] = [
         url: "https://inkytap.com/",
     },
     {
-        title: "KALEO",
-        titleSuffix: "Experimental Landing Experience",
-        meta: "2025 / Frontend Developer / Next.js, React, GSAP, Lenis, TailwindCSS",
-        url: "https://kaleo-usx2.onrender.com/",
+        title: "Aeriform",
+        titleSuffix: "Brand Concept",
+        meta: "Architecture studio / Web concept, Numen Agency / Editorial direction with centered typography, spatial rhythm and a quiet, precise interface",
+        url: "https://aeri-self.vercel.app/",
+    },
+    {
+        title: "Savia Café",
+        titleSuffix: "Brand Concept",
+        meta: "Specialty coffee roastery / Web concept, Numen Agency / Warm editorial direction with origin storytelling and natural texture",
+        url: "https://savia-cafe-nu.vercel.app/",
     },
 ];
 
