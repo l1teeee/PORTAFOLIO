@@ -4,42 +4,50 @@ import { EntryList, type Entry } from "@/components/react/EntryList";
 const EXPERIENCE: Entry[] = [
     {
         title: "Banco Cuscatlán",
-        meta: "Nov 2025 - Present / Front-End Developer & QA Analyst / Angular, TypeScript, Jest, digital banking workflows, QA and pre-production validation",
+        meta: "Nov 2025 - Present / Front-End Developer & QA Analyst / Angular, TypeScript, Jest",
+        detail: "Digital banking apps: authentication, payment and transaction workflows. Lazy loading, code splitting, state management, code reviews. Jira acceptance-criteria validation and pre-production QA.",
         url: "",
     },
     {
         title: "Numen Agency",
-        meta: "Jun 2024 - Present / Founder & Product Engineer / 12+ client projects, 5 production products and an ERP in development, 10K+ users / React, Next.js, Node.js, Python, PostgreSQL, AWS, GCP, Docker",
+        meta: "Jun 2024 - Present / Founder & Product Engineer / React, Next.js, Node.js, Python, AWS",
+        detail: "12+ client projects across SaaS, AI automation and enterprise software. 5 production products and an ERP in development, 10K+ cumulative users. Also PostgreSQL, GCP, Docker, OpenAI, Claude, RAG, n8n, Ollama.",
         url: "https://delta-numen.com/",
     },
     {
         title: "Cresium",
-        meta: "Jan 2026 - Sep 2026 / Product Engineer & Software Engineer, contract / Enterprise financial monitoring platform, Anthropic Claude API, LLM workflows, Forward Deployed Engineering",
+        meta: "Jan 2026 - Sep 2026 / Product Engineer & Software Engineer / Claude API, LLM workflows",
+        detail: "Contract. Enterprise financial monitoring platform across frontend, backend, API and data layers. Anthropic Claude API workflows in financial and operational processes. Forward Deployed Engineering approach.",
         url: "",
     },
     {
         title: "Litebox",
-        meta: "Aug 2025 - Jan 2026 / AI Automation Engineer, contract / Hybrid RAG & agentic workflows, contributed to 70% less manual processing and 40% lower operational costs / Python, OpenAI, Claude, Gemini, Ollama, n8n, Playwright",
+        meta: "Aug 2025 - Jan 2026 / AI Automation Engineer / RAG, n8n, Playwright, OpenAI, Claude",
+        detail: "Contract. Hybrid RAG and agentic workflows with cloud and local inference routing. Gemini, Ollama, OpenClaw, GitHub Actions and SonarQube gates. Contributed to 70% less manual processing and 40% lower operational costs.",
         url: "",
     },
     {
         title: "Ukiyo",
-        meta: "Oct 2024 - Nov 2025 / Full Stack Developer & IT Administrator / 4 banking apps from the ground up, 5 production environments on AWS and GCP, CI/CD automation, PHP/WordPress platforms",
+        meta: "Oct 2024 - Nov 2025 / Full Stack Developer & IT Administrator / AWS, GCP, CI/CD",
+        detail: "4 banking applications built from the ground up, with API integrations. AWS and GCP across 5 production environments, automated CI/CD. PHP/WordPress platforms, monitoring, networking and internal IT operations.",
         url: "",
     },
     {
         title: "Platform, Cloud & SRE",
-        meta: "Jan 2025 - Jun 2025 / Platform, Cloud & SRE Engineer, contract, enterprise client (NDA) / Multi-cloud EKS + GKE Kubernetes PoC through Istio / Terraform, GitHub Actions, SonarQube",
+        meta: "Jan 2025 - Jun 2025 / Platform, Cloud & SRE Engineer / Terraform, Kubernetes, Istio",
+        detail: "Contract, enterprise client under NDA. Multi-cloud AWS and GCP with EKS, GKE and Istio. EKS-GKE proof of concept with cross-cluster service discovery and workload identity. GitHub Actions and SonarQube validation.",
         url: "",
     },
     {
         title: "Fiscalía General de la República",
-        meta: "Jan 2024 - May 2024 / Network & IT Support Intern / Connectivity, troubleshooting and infrastructure maintenance",
+        meta: "Jan 2024 - May 2024 / Network & IT Support Intern / Networking, troubleshooting",
+        detail: "Internship. Network infrastructure and IT operations support: connectivity, troubleshooting and infrastructure maintenance.",
         url: "",
     },
     {
         title: "Colegio Don Bosco",
-        meta: "May 2023 - Nov 2023 / Frontend Developer & Server Administrator, internship / React, server monitoring, database optimization, firewall, IDS",
+        meta: "May 2023 - Nov 2023 / Frontend Developer & Server Administrator / React, firewall, IDS",
+        detail: "Internship. React interfaces, server monitoring, database optimization, firewall configuration and IDS administration.",
         url: "",
     },
 ];

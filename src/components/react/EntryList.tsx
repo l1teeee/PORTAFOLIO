@@ -2,6 +2,7 @@
 export interface Entry {
     title: string;
     meta: string;
+    detail?: string;
     url: string;
 }
 
@@ -24,6 +25,9 @@ function EntryBody({ entry, titleSize }: { entry: Entry; titleSize: "lg" | "md" 
                 {entry.title}
             </h3>
             <p className="text-halo mt-2 text-[10px] font-semibold leading-[1.4] opacity-60 md:mt-[10px]">{entry.meta}</p>
+            {entry.detail && (
+                <p className="entry-detail text-halo text-[10px] font-semibold leading-[1.4]">{entry.detail}</p>
+            )}
         </>
     );
 }
@@ -34,13 +38,13 @@ export function EntryList({ entries, titleSize }: EntryListProps) {
         <div className="pointer-events-auto absolute inset-x-0 bottom-0 top-[80px] flex justify-end md:top-0">
             <ul className="list-fade h-full w-full space-y-10 overflow-y-auto pb-10 pt-24 text-right scrollbar-hide md:w-auto md:max-w-[75%] md:space-y-12 md:pb-[60px] md:pt-[110px]">
                 {entries.map((entry) => (
-                    <li key={entry.title} className="group" data-reveal>
+                    <li key={entry.title} className="group relative hover:z-10" data-reveal>
                         {entry.url ? (
                             <a href={entry.url} target="_blank" rel="noopener noreferrer" className="block">
                                 <EntryBody entry={entry} titleSize={titleSize} />
                             </a>
                         ) : (
-                            <div>
+                            <div tabIndex={entry.detail ? 0 : undefined}>
                                 <EntryBody entry={entry} titleSize={titleSize} />
                             </div>
                         )}

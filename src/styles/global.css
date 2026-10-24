@@ -49,3 +49,54 @@ body {
   -webkit-mask-image: linear-gradient(to bottom, transparent, black 14%, black 86%, transparent);
   mask-image: linear-gradient(to bottom, transparent, black 14%, black 86%, transparent);
 }
+
+/* Extra text of a list entry. It stays closed until the entry is hovered, tapped or focused.
+   With a mouse on a wide screen it opens as an overlay under the entry and never moves the list;
+   on touch and narrow screens it opens in the normal flow */
+.entry-detail {
+  display: none;
+  margin-top: 6px;
+  opacity: 0.6;
+}
+
+.group:hover .entry-detail,
+.group:focus-within .entry-detail {
+  display: block;
+}
+
+/* iOS only turns a tap into a hover on elements it treats as clickable */
+@media (hover: none) {
+  .group {
+    cursor: pointer;
+  }
+}
+
+@media (hover: hover) and (min-width: 768px) {
+  .entry-detail {
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    max-width: 100%;
+    margin-top: 4px;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 300ms ease, transform 300ms ease;
+  }
+
+  .group:hover .entry-detail {
+    opacity: 0.8;
+    transform: translateY(0);
+  }
+
+  .group:has(:focus-visible) .entry-detail {
+    opacity: 0.8;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entry-detail {
+    transition: none;
+  }
+}
