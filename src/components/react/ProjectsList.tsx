@@ -38,7 +38,7 @@ const PROJECTS: Project[] = [
         title: "InkyTap",
         titleSuffix: "Digital Library Platform",
         meta: "2025 / Fullstack Developer / Next.js, Node.js, MongoDB, AWS S3, Event-driven Architecture",
-        url: "https://inkytap.com/",
+        url: "",
     },
     {
         title: "Aeriform",

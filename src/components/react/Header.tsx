@@ -75,7 +75,7 @@ export function Header({ roleRef, onNavigate }: HeaderProps) {
                 Julián Méndez
             </h1>
             <p ref={roleRef} className="text-halo mt-2 text-[11px] leading-none md:mt-[10px] md:text-[12px]">
-                Software Engineer / AI Automation / Cloud & Platform Engineering
+                Software Engineer / Product Engineer / Forward Deployed Engineer
             </p>
         </header>
     );

@@ -5,6 +5,7 @@ interface ExternalLink {
 }
 
 const LINKS: ExternalLink[] = [
+    { label: "Email", href: "mailto:official.count.alejandro@gmail.com" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/julian-mendez-ar/" },
     { label: "GitHub", href: "https://github.com/l1teeee" },
     { label: "Numen Agency", href: "https://delta-numen.com/" },
@@ -19,19 +20,23 @@ export function Contact() {
                 Contact
             </p>
             <ul className="space-y-[10px]">
-                {LINKS.map((link) => (
-                    <li key={link.label} data-reveal>
-                        <a
-                            href={link.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-start gap-1 text-[12px] font-semibold leading-none transition-opacity duration-300 hover:opacity-50"
-                        >
-                            {link.label}
-                            <span className="text-[9px] leading-none">&#8599;</span>
-                        </a>
-                    </li>
-                ))}
+                {LINKS.map((link) => {
+                    // mailto must open the mail client, not a blank new tab
+                    const opensNewTab = !link.href.startsWith("mailto:");
+                    return (
+                        <li key={link.label} data-reveal>
+                            <a
+                                href={link.href}
+                                target={opensNewTab ? "_blank" : undefined}
+                                rel={opensNewTab ? "noopener noreferrer" : undefined}
+                                className="inline-flex items-start gap-1 text-[12px] font-semibold leading-none transition-opacity duration-300 hover:opacity-50"
+                            >
+                                {link.label}
+                                <span className="text-[9px] leading-none">&#8599;</span>
+                            </a>
+                        </li>
+                    );
+                })}
             </ul>
         </div>
     );

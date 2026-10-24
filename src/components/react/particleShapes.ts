@@ -9,6 +9,7 @@ export const SHAPE_TILT: Record<Section, { x: number; z: number }> = {
     home: { x: 0, z: 0 },
     me: { x: 0.35, z: -0.2 },
     experience: { x: 0.3, z: -0.6 },
+    skills: { x: 1.0, z: -0.3 },
     projects: { x: 0, z: 0 },
     certificates: { x: 1.15, z: 0.25 },
 };
@@ -18,6 +19,7 @@ export const SHAPE_SPIN: Record<Section, number> = {
     home: 0,
     me: 0.08,
     experience: 0.22,
+    skills: 0.12,
     projects: 0.05,
     certificates: 0.16,
 };
@@ -147,10 +149,13 @@ function helix(count: number): Float32Array {
 }
 
 export function buildShapeTargets(count: number): ShapeTargets {
+    // Me and Skills share one ring: changing between them only re-orients it, the grain does not regenerate
+    const ring = torus(count);
     return {
         home: nebula(count),
-        me: torus(count),
+        me: ring,
         experience: helix(count),
+        skills: ring,
         projects: sphere(count),
         certificates: galaxy(count),
     };

@@ -1,29 +1,15 @@
 // src/components/react/MobileMenu.tsx
 import type { Section } from "@/types";
 import { SECTIONS } from "@/data/sections";
-import { ToggleButton } from "@/components/react/ToggleButton";
 
 interface MobileMenuProps {
     isOpen: boolean;
     activeSection: Section;
     onNavigate: (section: Section) => void;
     onClose: () => void;
-    isDark: boolean;
-    isMono: boolean;
-    onThemeChange: (dark: boolean) => void;
-    onMonoToggle: () => void;
 }
 
-export function MobileMenu({
-    isOpen,
-    activeSection,
-    onNavigate,
-    onClose,
-    isDark,
-    isMono,
-    onThemeChange,
-    onMonoToggle,
-}: MobileMenuProps) {
+export function MobileMenu({ isOpen, activeSection, onNavigate, onClose }: MobileMenuProps) {
     const handleNavigate = (section: Section) => {
         onNavigate(section);
         onClose();
@@ -54,12 +40,6 @@ export function MobileMenu({
                     ))}
                 </ul>
             </nav>
-
-            <div className="absolute bottom-8 left-8 flex items-center gap-5">
-                <ToggleButton active={!isDark} label="Light" onClick={() => onThemeChange(false)} />
-                <ToggleButton active={isDark} label="Dark" onClick={() => onThemeChange(true)} />
-                <ToggleButton active={isMono} label="Mono" onClick={onMonoToggle} />
-            </div>
         </div>
     );
 }

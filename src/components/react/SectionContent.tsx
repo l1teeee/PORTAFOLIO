@@ -6,6 +6,7 @@ import { Bio } from "@/components/react/Bio";
 import { Contact } from "@/components/react/Contact";
 import { Education } from "@/components/react/Education";
 import { ExperienceList } from "@/components/react/ExperienceList";
+import { SkillsList } from "@/components/react/SkillsList";
 import { ProjectsList } from "@/components/react/ProjectsList";
 import { CertificatesList } from "@/components/react/CertificatesList";
 
@@ -46,6 +47,7 @@ export function SectionContent({ contentRef, activeSection }: SectionContentProp
                 </>
             )}
             {activeSection === "experience" && <ExperienceList />}
+            {activeSection === "skills" && <SkillsList />}
             {activeSection === "projects" && <ProjectsList />}
             {activeSection === "certificates" && <CertificatesList />}
         </div>

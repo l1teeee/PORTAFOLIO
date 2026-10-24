@@ -2,19 +2,12 @@
 
 @theme {
   --font-sans: "Geist", "Inter", system-ui, sans-serif;
-  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
 
 :root {
   --bg: #0d0d0d;
   --fg: #ffffff;
   --line: rgba(255, 255, 255, 0.16);
-}
-
-[data-theme="light"] {
-  --bg: #e2e2e2;
-  --fg: #111111;
-  --line: rgba(0, 0, 0, 0.22);
 }
 
 html,

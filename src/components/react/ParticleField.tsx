@@ -7,8 +7,6 @@ import { buildScatter, buildShapeTargets, SHAPE_SPIN, SHAPE_TILT } from "./parti
 
 interface ParticleFieldProps {
     section: Section;
-    isDark: boolean;
-    isMono: boolean;
     // Dim the field while the intro text sits on top of it; it brightens when the intro ends
     subdued: boolean;
 }
@@ -26,17 +24,14 @@ const SECTION_LOOK: Record<Section, { shiftX: number; opacity: number; shade: nu
     home: { shiftX: 0, opacity: 0.35, shade: 0 },
     me: { shiftX: -0.19, opacity: 0.7, shade: 1 },
     experience: { shiftX: -0.16, opacity: 0.75, shade: 1 },
+    skills: { shiftX: -0.17, opacity: 0.75, shade: 1 },
     projects: { shiftX: -0.15, opacity: 0.85, shade: 1 },
     certificates: { shiftX: -0.12, opacity: 0.8, shade: 1 },
 };
 
-const DARK_COLOR = new THREE.Color("#ffffff");
-const LIGHT_COLOR = new THREE.Color("#151515");
-const PIXEL_CELL_PX = 12;
-// Dozens of particles land on each pixel cell, so each one must contribute far less than a loose grain
-const PIXEL_OPACITY_FACTOR = 0.035;
+const PARTICLE_COLOR = new THREE.Color("#ffffff");
 const SUBDUED_OPACITY_FACTOR = 0.22;
-// Brightness surge when the section or theme changes, decaying over about a second
+// Brightness surge when the section changes, decaying over about a second
 const PULSE_STRENGTH = 0.7;
 const MORPH_SECONDS = 3.5;
 const DESKTOP_COUNT = 90000;
@@ -47,9 +42,7 @@ const vertexShader = /* glsl */ `
     attribute float aSeed;
     uniform float uTime;
     uniform vec2 uMouse;
-    uniform vec2 uResolution;
     uniform mat3 uOrient;
-    uniform float uCellPx;
     uniform float uSize;
     uniform float uPixelRatio;
     uniform float uCenterX;
@@ -79,14 +72,6 @@ const vertexShader = /* glsl */ `
         float depth = max(-mv.z, 1.0);
         float size = min(uSize * uPixelRatio * (0.6 + 0.9 * fract(aSeed * 13.7)) * (10.0 / depth), 4.0 * uPixelRatio);
 
-        // monospaced mode: snap to a screen-space grid so the field reads as pixel art
-        if (uCellPx > 0.5) {
-            vec2 px = (clip.xy / clip.w * 0.5 + 0.5) * uResolution;
-            px = (floor(px / uCellPx) + 0.5) * uCellPx;
-            clip.xy = (px / uResolution * 2.0 - 1.0) * clip.w;
-            size = max(size, uCellPx);
-        }
-
         gl_Position = clip;
         gl_PointSize = max(1.0, size);
 
@@ -102,17 +87,13 @@ const vertexShader = /* glsl */ `
 const fragmentShader = /* glsl */ `
     uniform vec3 uColor;
     uniform float uOpacity;
-    uniform float uCellPx;
     varying float vAlpha;
 
     void main() {
-        float shape = 1.0;
-        if (uCellPx < 0.5) {
-            vec2 c = gl_PointCoord - 0.5;
-            float r2 = dot(c, c);
-            if (r2 > 0.25) discard;
-            shape = 1.0 - smoothstep(0.1, 0.25, r2);
-        }
+        vec2 c = gl_PointCoord - 0.5;
+        float r2 = dot(c, c);
+        if (r2 > 0.25) discard;
+        float shape = 1.0 - smoothstep(0.1, 0.25, r2);
         gl_FragColor = vec4(uColor, shape * vAlpha * uOpacity);
     }
 `;
@@ -133,7 +114,7 @@ interface FieldProps extends ParticleFieldProps {
     pointer: RefObject<PointerNDC>;
 }
 
-function Field({ section, isDark, isMono, subdued, pointer }: FieldProps) {
+function Field({ section, subdued, pointer }: FieldProps) {
     const count = useMemo(() => (window.innerWidth < 768 ? MOBILE_COUNT : DESKTOP_COUNT), []);
     const targets = useMemo(() => buildShapeTargets(count), [count]);
     const seeds = useMemo(() => Float32Array.from({ length: count }, () => Math.random()), [count]);
@@ -159,11 +140,9 @@ function Field({ section, isDark, isMono, subdued, pointer }: FieldProps) {
                 uniforms: {
                     uTime: { value: 0 },
                     uMouse: { value: FAR_AWAY.clone() },
-                    uResolution: { value: new THREE.Vector2(1, 1) },
                     uOrient: { value: new THREE.Matrix3() },
-                    uColor: { value: DARK_COLOR.clone() },
+                    uColor: { value: PARTICLE_COLOR.clone() },
                     uOpacity: { value: 0 },
-                    uCellPx: { value: 0 },
                     uSize: { value: 1.4 },
                     uPixelRatio: { value: 1 },
                     uCenterX: { value: 0 },
@@ -191,11 +170,6 @@ function Field({ section, isDark, isMono, subdued, pointer }: FieldProps) {
         pulse.current = 1;
     }, [section]);
 
-    useEffect(() => {
-        material.blending = isDark ? THREE.AdditiveBlending : THREE.NormalBlending;
-        pulse.current = 1;
-    }, [isDark, material]);
-
     useEffect(
         () => () => {
             geometry.dispose();
@@ -215,7 +189,6 @@ function Field({ section, isDark, isMono, subdued, pointer }: FieldProps) {
 
         u.uTime.value += dt;
         u.uPixelRatio.value = dpr;
-        u.uResolution.value.set(state.size.width * dpr, state.size.height * dpr);
 
         if (morphRemaining.current > 0) {
             morphRemaining.current -= dt;
@@ -239,14 +212,11 @@ function Field({ section, isDark, isMono, subdued, pointer }: FieldProps) {
         }
         u.uMouse.value.lerp(mouseTarget, ease(4));
         u.uGlow.value += ((p.active ? 1 : 0) - u.uGlow.value) * ease(3);
-        u.uColor.value.lerp(isDark ? DARK_COLOR : LIGHT_COLOR, ease(4));
-        u.uCellPx.value += ((isMono ? PIXEL_CELL_PX * dpr : 0) - u.uCellPx.value) * ease(5);
 
         pulse.current *= Math.exp(-2.2 * dt);
         const targetOpacity =
             look.opacity *
             (1 + PULSE_STRENGTH * pulse.current) *
-            (isMono ? PIXEL_OPACITY_FACTOR : 1) *
             (subdued ? SUBDUED_OPACITY_FACTOR : 1);
         u.uOpacity.value += (targetOpacity - u.uOpacity.value) * ease(3);
         u.uShade.value += (look.shade - u.uShade.value) * ease(2);

@@ -8,23 +8,25 @@ export function Bio() {
             <br />
             Software Engineer
             <br />
-            and Technical Lead
+            with a product-oriented
             <br />
-            focused on full-stack systems,
+            and Forward Deployed
+            <br />
+            Engineering approach,
+            <br />
+            taking products from
+            <br />
+            idea to production
+            <br />
+            across fintech, SaaS,
             <br />
             AI automation
             <br />
-            and cloud infrastructure.
+            and cloud.
             <br />
             Founder of Numen Agency,
             <br />
-            delivering SaaS,
-            <br />
-            enterprise automation
-            <br />
-            and production workloads
-            <br />
-            across AWS and GCP.
+            a digital product studio.
         </p>
     );
 }
